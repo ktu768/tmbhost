@@ -8,6 +8,7 @@ export const updateLocalStorage = (key, value) => {
 
 // Update sessionStorage and emit a custom event
 export const updateSessionStorage = (key, value) => {
+  console.log("Updating sessionStorage:", key, value);
   sessionStorage.setItem(key, JSON.stringify(value));
   window.dispatchEvent(new Event("sessionStorageUpdated"));
 };

@@ -35,9 +35,9 @@ const GameOver = () => {
               {gameEnded ? "🚫 Game ended by host" : `🏆 Winner : ${winner}!`}
             </div>
           )}
-          <p className="text-gray-700 mb-6">
+          {/* <p className="text-gray-700 mb-6">
             All your progress is stored in the database.
-          </p>
+          </p> */}
           <div className="bg-gray-100 p-6 rounded-lg shadow-inner">
             <p className="text-gray-600 mb-4">
               You will be redirected to home in 10 seconds.

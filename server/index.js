@@ -78,7 +78,8 @@ io.on("connection", (socket) => {
     // Starting game
     socket.on("start_game", (roomid, id) => {
       try {
-        if (!roomid || !room[roomid] || !id) {
+        if (!roomid || !id) {
+          console.log("roomid roomnotfounvaluew", roomid, id);
           socket.emit("error", "Room not found");
           return;
         }
@@ -121,34 +122,44 @@ io.on("connection", (socket) => {
     // Claiming points
     socket.on("claim", async (roomid, userid, pattern, name) => {
       try {
-        if (!roomid || !userid || !pattern || !name || !room[roomid]) {
+        // Clean up the roomid by removing extra quotes if present
+        const cleanRoomId = roomid.replace(/^["']|["']$/g, '');
+        
+        console.log("Claim request received:", { roomid: cleanRoomId, userid, pattern, name, room });
+        
+        if (!cleanRoomId || !userid || !pattern || !name) {
           socket.emit("error", "Invalid claim request");
           return;
         }
 
-        const res = claimPoint(roomid, userid, pattern);
+        if (!room[cleanRoomId]) {
+          socket.emit("error", "Room not found");
+          return;
+        }
+
+        const res = claimPoint(cleanRoomId, userid, pattern);
         if (typeof res === "string") {
           socket.emit("error", res);
           return;
         }
 
-        io.to(roomid).emit("claim_update", room[roomid]?.claimList || []);
-        io.to(roomid).emit("claimed", pattern, name);
+        io.to(cleanRoomId).emit("claim_update", room[cleanRoomId]?.claimList || []);
+        io.to(cleanRoomId).emit("claimed", pattern, name);
 
-        if (room[roomid]?.claimList.includes(6)) {
-          const winner = room[roomid]?.winner?.name;
-          const saveRes = await storeRoom(roomid, room[roomid]);
+        if (room[cleanRoomId]?.claimList.includes(6)) {
+          const winner = room[cleanRoomId]?.winner?.name;
+          const saveRes = await storeRoom(cleanRoomId, room[cleanRoomId]);
           if (typeof saveRes === "string") {
             socket.emit("error", saveRes);
             return;
           }
 
-          io.to(roomid).emit("room_data_stored", winner);
+          io.to(cleanRoomId).emit("room_data_stored", winner);
           drawno = [];
-          io.to(roomid).emit("game_over");
+          io.to(cleanRoomId).emit("game_over");
         }
       } catch (err) {
-        // console.error("Error in claim:", err);
+        console.error("Error in claim:", err);
         socket.emit("error", "Server error");
       }
     });

@@ -139,7 +139,7 @@ const AssignNumbers = (props) => {
               localStorage.getItem("userid") || localStorage.getItem("hostid");
             const pattern = id;
 
-            // console.log(roomid, userid, pattern);
+            console.log(roomid, userid, pattern);
             socket.emit("claim", roomid, userid, pattern, player?.name);
             claimMenuToggle();
           } else {

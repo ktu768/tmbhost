@@ -88,7 +88,8 @@ export const joinRoom = (roomId, player, socketid, ticket_count) => {
 
 export const claimPoint = (roomid, userid, pattern) => {
   try {
-    if (!room[roomid]) {
+    if (!roomid || !room[roomid]) {
+      console.log("Room not found", roomid, room);
       return "Room not found";
     }
 

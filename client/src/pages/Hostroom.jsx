@@ -138,7 +138,7 @@ const Hostroom = () => {
   //start game button click logic
   const handleStartClick = async () => {
     if (hostid) {
-      // console.log(hostid);
+      console.log(roomid,hostid);
       socket.emit("start_game", roomid, hostid);
       setLoading(true);
     }

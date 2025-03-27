@@ -132,7 +132,8 @@ const Hostpage = () => {
   const handleRoomJoin = (room) => {
     setLoading(false);
     if (hostid && player) {
-      updateSessionStorage("roomid", parseInt(room));
+      console.log("Room joined:", room);
+      updateSessionStorage("roomid", room);
       deductPoints();
       navigate(`/host/room/${room}`);
     } else {
