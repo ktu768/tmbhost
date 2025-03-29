@@ -149,17 +149,6 @@ const Header = () => {
                     )}
                   </li>
                 </ul>
-                <p className="text-sm mt-10 text-center text-gray-900 py-4 opacity-55">
-                  Developed by{" "}
-                  <a
-                    href="https://github.com/sumeet57"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-medium text-gray-600 hover:underline hover:text-orange-500 transition-all duration-300"
-                  >
-                    Sumeet
-                  </a>
-                </p>
               </div>
             </div>
           )}
