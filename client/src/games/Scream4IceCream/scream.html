@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Scream 4 Ice Cream - A fun game where you can win a free ice cream coupon by screaming!">
+  <meta name="keywords" content="scream, ice cream, game, fun, coupon">
+  <link rel="icon" type="image/png" href="ice-cream.png">
+  <title>Scream 4 Ice Cream</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
+  <script type="text/javascript">
+    (function () {
+      emailjs.init("QHReKr7x5ZPIM9QUa");
+    })();
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Scream 4 Ice Cream!</h1>
+
+    <div class="game-area" id="game-area">
+      <div id="icecream-container">
+        <div id="fill-container">
+          <div id="fill"></div>
+        </div>
+        <div class="ice-cream-wrapper">
+          <img src="ice-cream.png" class="ice-cream original" alt="Ice Cream">
+          <img src="ice-cream.png" class="ice-cream grayscale" alt="Ice Cream (Grayscale)">
+        </div>
+      </div>
+      <br>
+      <br>
+      <div class="decibel-display" id="decibel-display">0 dB</div>
+
+      <div id="volume-meter">
+        <div id="volume-level"></div>
+      </div>
+
+      <button id="start-btn" class="btn">Start Screaming</button>
+      <p class="instructions">Click start and scream to fill the ice cream!</p>
+    </div>
+
+    <div class="result-area" id="result-area">
+      <h2>🎉 Congratulations! 🎉</h2>
+      <p>You've won a free ice cream coupon!</p>
+      <div class="coupon" id="coupon-code">ICECREAM123</div>
+      <p id="enter-email">Enter your email to receive your coupon:</p>
+
+      <div class="form-group">
+        <input type="email" id="email-input" placeholder="Your email" />
+        <button id="submit-btn" class="btn submit-btn">Send Coupon</button>
+      </div>
+
+      <div class="success-message" id="success-message">
+        <iframe src="https://lottie.host/embed/142ec7b4-1644-4081-8992-8edf0efbe4e7/eKH5cWjrcD.lottie"
+          style="border:none;" width="100%" height="100%"></iframe>
+        <p>Coupon sent successfully!</p>
+        <p>Check your Email soon.</p>
+        <button id="back-btn" class="btn back-btn">Play Again</button>
+      </div>
+    </div>
+  </div>
+
+ <script src="script.js"></script>
+</body>
+
+</html>

@@ -8,6 +8,7 @@ import {
   Router,
   Route,
   createBrowserRouter,
+  Navigate,
 } from "react-router-dom";
 
 //import components
@@ -19,9 +20,21 @@ import Userpage from "./pages/Userpage.jsx";
 import Hostpage from "./pages/Hostpage.jsx";
 import Game from "./pages/Game.jsx";
 import GameOver from "./pages/GameOver.jsx";
+import GameHub from "./pages/GameHub.jsx";
+import Scream4IceCream from "./pages/Scream4IceCream.jsx";
+import Stop10 from "./pages/Stop10.jsx";
+
 const router = createBrowserRouter([
   {
     path: "/",
+    element: <App />,
+  },
+  {
+    path: "/lander",
+    element: <GameHub />,
+  },
+  {
+    path: "/tambola",
     element: <App />,
   },
   {
@@ -70,6 +83,14 @@ const router = createBrowserRouter([
         element: <GameOver />,
       },
     ],
+  },
+  {
+    path: "/scream4icecream",
+    element: <Scream4IceCream />,
+  },
+  {
+    path: "/stop10",
+    element: <Stop10 />,
   },
 ]);
 

@@ -1,0 +1,239 @@
+:root {
+  --primary-color: #ff6b6b;
+  --secondary-color: #4ecdc4;
+  --accent-color: #ffe66d;
+  --dark-color: #292f36;
+  --light-color: #f7fff7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  padding: 20px;
+  color: var(--dark-color);
+}
+
+.container {
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 100%;
+  max-width: 500px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.game-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+#icecream-container {
+  position: relative;
+  width: 180px;
+  height: 320px;
+  margin: 20px 0;
+}
+
+#volume-meter {
+  width: 80%;
+  height: 10px;
+  background-color: #eee;
+  border-radius: 5px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+
+#volume-level {
+  height: 100%;
+  width: 0%;
+  background-color: var(--secondary-color);
+  transition: width 0.1s;
+}
+
+.btn {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+.result-area {
+  display: none;
+  animation: fadeIn 0.5s;
+}
+
+.coupon {
+  background-color: var(--accent-color);
+  padding: 15px;
+  border-radius: 10px;
+  margin: 20px 0;
+  font-weight: 600;
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.form-group {
+  margin: 15px 0;
+}
+
+input[type="email"] {
+  padding: 12px 15px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  width: 100%;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input[type="email"]:focus {
+  border-color: var(--secondary-color);
+  outline: none;
+}
+
+.submit-btn {
+  background-color: var(--secondary-color);
+  margin-top: 10px;
+}
+
+.instructions {
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 10px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.01);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.listening {
+  animation: pulse 1s infinite;
+}
+
+.decibel-display {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin: 10px 0;
+  transition: all 0.2s;
+}
+
+.success-message {
+  display: none;
+  color: var(--secondary-color);
+  font-weight: 600;
+  margin-top: 15px;
+  padding: 20px;
+  position: relative;
+  text-align: center;
+}
+
+
+@keyframes scale {
+
+  0%,
+  100% {
+    transform: none;
+  }
+
+  50% {
+    transform: scale3d(1.1, 1.1, 1);
+  }
+}
+
+@keyframes fill {
+  100% {
+    box-shadow: inset 0px 0px 0px 30px var(--secondary-color);
+  }
+}
+
+.back-btn {
+  background-color: var(--dark-color);
+  margin-top: 20px;
+}
+
+.ice-cream-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.ice-cream {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.ice-cream.grayscale {
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: grayscale(100%);
+  clip-path: inset(0 0 0 0);
+  pointer-events: none;
+}

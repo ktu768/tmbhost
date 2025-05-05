@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stopper@10</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class=" min-h-screen flex items-center justify-center p-6">
+    <div class="bg-white/70 backdrop-blur-lg p-10 rounded-3xl shadow-2xl w-full max-w-md text-center">
+        <h1 class="text-4xl font-extrabold mb-6 text-gray-900 tracking-wide">🎯 Stop b/w 9.8 and 10.2!</h1>
+        <div id="timer"
+            class="text-6xl font-mono text-white mb-8 bg-black inline-block px-8 py-4 rounded-lg shadow-inner">00.000
+        </div>
+
+        <button id="startBtn"
+            class="bg-gradient-to-r from-green-400 to-teal-500 hover:from-green-500 hover:to-teal-600 text-white px-8 py-3 rounded-full font-semibold shadow-lg transform hover:scale-105 transition-all">Start</button>
+
+        <!-- Lottie animations ABOVE message -->
+        <div id="animationContainer" class="mt-6 hidden">
+            <iframe id="anim-win" src="https://lottie.host/embed/e5053127-0760-45ba-a8ee-d602e6ed96a6/Yqf7zf7rUJ.lottie"
+                class="mx-auto mt-4" style="border:none;width:200px;height:200px;"></iframe>
+            <iframe id="anim-fast"
+                src="https://lottie.host/embed/c58d720a-e228-439b-ada6-bb0c93a283c9/XU0eRyULrx.lottie"
+                class="mx-auto mt-4" style="border:none;width:200px;height:200px;"></iframe>
+            <iframe id="anim-slow"
+                src="https://lottie.host/embed/aec49c0a-6022-44ef-bef6-5b4a116ecf14/MxzjkHcYA7.lottie"
+                class="mx-auto mt-4" style="border:none;width:250px;height:250px;"></iframe>
+            <iframe id="anim-close"
+                src="https://lottie.host/embed/39c73cda-c074-4be7-9c56-a099f3666171/5Dvv94ot6Y.lottie"
+                class="mx-auto mt-4" style="border:none;width:200px;height:200px;"></iframe>
+        </div>
+
+        <div id="message" class="mt-6 text-lg font-semibold opacity-0"></div>
+
+        <button id="resetBtn"
+            class="mt-6 hidden bg-gradient-to-r from-purple-500 to-pink-500 text-white px-6 py-2 rounded-full font-semibold shadow-lg hover:from-purple-600 hover:to-pink-600 transform hover:scale-105 transition-all">Play
+            Again</button>
+
+        <script src="script.js"></script>
+
+    </div>
+</body>
+
+</html>
