@@ -96,10 +96,10 @@ async function startListening() {
       const volumePercent = Math.min(displayDb, 100);
       volumeLevel.style.width = `${volumePercent}%`;
 
-      if (displayDb >= 75) {
-        const increment = (displayDb - 74) * 0.5;
+      if (displayDb >= 20) {
+        const increment = (displayDb - 19) * 0.5;
         currentHeight = Math.min(currentHeight + increment, 100);
-        const scaleFactor = 1 + Math.min((displayDb - 75) / 150, 0.15);
+        const scaleFactor = 1 + Math.min((displayDb - 20) / 150, 0.15);
         icecreamContainer.style.transform = `scale(${scaleFactor})`;
       } else {
         currentHeight = Math.max(currentHeight - 0.5, 0);
