@@ -1,10 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --bg-gradient: radial-gradient(circle at center, #E6F9F0 0%, #C4F7DE 100%);
+    --card-white: #FFFFFF;
+    --primary-green: #0EE17C;
+    --dark-green: #002B1B;
+    --gray-muted: #9BAFB1;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
 body {
-    font-family: 'Inter', sans-serif;
-  }
-  .fade-in {
-    animation: fadeIn 0.5s ease-in-out forwards;
-  }
-  @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-5px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    min-height: 100vh;
+    background: var(--bg-gradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: var(--dark-green);
+}
+
+.game-container {
+    text-align: center;
+    width: 100%;
+    max-width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+/* Reserved space for animation or mission label */
+.header-area {
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.mission-label {
+    text-transform: uppercase;
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.15rem;
+    color: var(--gray-muted);
+}
+
+.title {
+    font-size: clamp(1.5rem, 5vw, 1.75rem);
+    font-weight: 800;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+}
+
+.timer-card {
+    background: var(--card-white);
+    border-radius: 2.5rem;
+    padding: 3rem 1.5rem;
+    box-shadow: 0 1.25rem 2.5rem rgba(0, 43, 27, 0.05);
+    margin: 0 auto 3rem auto;
+    width: 100%;
+    position: relative;
+    max-width: 400px;
+}
+
+.timer-display {
+    font-size: clamp(3.5rem, 15vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.15rem;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+}
+
+.timer-display .ms-suffix {
+    color: var(--gray-muted);
+}
+
+.badge {
+    display: inline-block;
+    background: var(--primary-green);
+    color: var(--dark-green);
+    font-size: 0.65rem;
+    font-weight: 800;
+    padding: 0.4rem 1rem;
+    border-radius: 1.25rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+}
+
+.action-btn {
+    background: var(--primary-green);
+    color: var(--dark-green);
+    border: none;
+    padding: 1.1rem 3rem;
+    border-radius: 6.25rem;
+    font-size: 1.15rem;
+    font-weight: 800;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin: 0 auto;
+    transition: transform 0.2s, background 0.2s, box-shadow 0.2s;
+    box-shadow: 0 0.6rem 1.25rem rgba(14, 225, 124, 0.2);
+}
+
+.action-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 1rem 1.8rem rgba(14, 225, 124, 0.3);
+}
+
+.play-icon {
+    width: 0;
+    height: 0;
+    border-top: 0.5rem solid transparent;
+    border-bottom: 0.5rem solid transparent;
+    border-left: 0.75rem solid var(--dark-green);
+}
+
+#animationContainer {
+    width: 100%;
+    max-width: 250px;
+    height: 180px;
+    margin-bottom: -1.5rem;
+}
+
+#animationContainer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    pointer-events: none;
+}
+
+#message {
+    margin: 1.5rem 0;
+    font-weight: 700;
+    min-height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.01); }
+    100% { transform: scale(1); }
+}
+
+.running .timer-card {
+    animation: pulse 2s infinite ease-in-out;
+}
+
